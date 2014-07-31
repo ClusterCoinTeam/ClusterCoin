@@ -202,6 +202,9 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent) :
     layout->setContentsMargins(0,0,0,0);
 
     setLayout(layout);
+		// disable blinking in black theme
+    amount->setFrame(false);
+    unit->setFrame(false);
 
     setFocusPolicy(Qt::TabFocus);
     setFocusProxy(amount);

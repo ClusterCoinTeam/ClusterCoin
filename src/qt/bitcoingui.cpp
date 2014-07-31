@@ -187,7 +187,61 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
     {
         progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
     }
-
+    this->setStyleSheet(".BitcoinGUI { \
+                          background-image: url(:/images/background-all-pages); \
+                          background-position: bottom left; \
+                          background-repeat: no-repeat; \
+                          background-color: rgb(0, 0, 0); \
+                        } \
+                        QFrame#frameOverview { \
+                          background-image: url(:/images/background); \
+                          background-position: bottom left; \
+                          background-repeat: no-repeat; \
+                        } \
+                        * { color: rgb(255, 255, 255);                      \
+                            background-color: rgba(255, 255, 255, 0);       \
+                            selection-background-color: rgb(0, 0, 150);     \
+                        }                                                   \
+                        QTableView { background-color: rgb(0, 0, 0);  alternate-background-color: rgb(50, 50, 50); } \
+                        QHeaderView::section {                                        \
+                          background-color: gb(50, 50, 50); \
+                          color: white; \
+                          padding-left: 4px;  \
+                        }                                                                         \
+                        QToolButton:on, QMenuBar::item:selected, QMenu::item:selected, QToolTip {  \
+                          background-color: rgba(0, 0, 0, 215); \
+                          border: 1px solid rgb(255, 255, 255); \
+                        } \
+                        QMenu {  \
+                          background-color: rgba(0, 0, 0, 210); \
+                          border: 1px solid rgb(255, 255, 255); \
+                        } \
+                        QMenuBar::item { \
+                          background-color: transparent; \
+                          color: white; \
+                        } \
+                        QMenu::item { \
+                            background-color: rgba(0, 0, 0, 210); \
+                            padding: 2px 25px 2px 20px; \
+                            border: 1px solid transparent; \
+                        }                       \
+                        QMenu::separator { \
+                            height: 2px; \
+                            background: rgb(50, 50, 50); \
+                            margin-left: 10px; \
+                            margin-right: 5px; \
+                        } \
+                        QValueComboBox, QAbstractSpinBox, QLineEdit, QDoubleSpinBox { \
+                          border: 1px solid rgb(255, 255, 255); \
+                          border-radius: 1px; \
+                        }\
+                        QPushButton { \
+                          background-color: rgb(0, 0, 0, 210); \
+                          color: white; \
+                          padding: 6px; \
+                          border: 1px solid rgb(255, 255, 255); \
+                        }\
+    ");
     statusBar()->addWidget(progressBarLabel);
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
