@@ -601,6 +601,7 @@ void BitcoinGUI::optionsClicked()
         return;
 
     OptionsDialog dlg(this);
+    dlg.setStyleSheet(qApp->styleSheet());
     dlg.setModel(clientModel->getOptionsModel());
     dlg.exec();
 }
