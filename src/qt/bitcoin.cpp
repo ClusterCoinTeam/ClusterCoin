@@ -461,7 +461,7 @@ void BitcoinApplication::handleRunawayException(const QString &message)
     ::exit(1);
 }
 
-WId ClusterCoinApplication::getMainWinId() const
+WId BitcoinApplication::getMainWinId() const
 {
     if (!window)
         return 0;
