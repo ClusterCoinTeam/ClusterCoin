@@ -83,6 +83,7 @@ Value getinfo(const Array& params, bool fHelp)
     }
 #endif
     obj.push_back(Pair("blocks",        (int)chainActive.Height()));
+    obj.push_back(Pair("moneysupply",   chainActive.Tip() ? ValueFromAmount(chainActive.Tip()->nMoneySupply): "<no info>"));
     obj.push_back(Pair("timeoffset",    GetTimeOffset()));
     obj.push_back(Pair("connections",   (int)vNodes.size()));
     obj.push_back(Pair("proxy",         (proxy.IsValid() ? proxy.ToStringIPPort() : string())));

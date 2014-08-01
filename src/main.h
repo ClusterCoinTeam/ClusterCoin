@@ -699,6 +699,9 @@ public:
     // (memory only) Number of transactions in the chain up to and including this block
     unsigned int nChainTx; // change to 64-bit type when necessary; won't happen before 2030
 
+    // ClusterCoin: money supply
+    int64_t nMoneySupply;
+
     // Verification status of this block. See enum BlockStatus
     unsigned int nStatus;
 
@@ -724,6 +727,7 @@ public:
         nChainWork = 0;
         nTx = 0;
         nChainTx = 0;
+        nMoneySupply = 0;
         nStatus = 0;
         nSequenceId = 0;
 
@@ -824,7 +828,7 @@ public:
 
     /**
      * Returns true if there are nRequired or more blocks of minVersion or above
-     * in the last Params().ToCheckBlockUpgradeMajority() blocks, starting at pstart 
+     * in the last Params().ToCheckBlockUpgradeMajority() blocks, starting at pstart
      * and going backwards.
      */
     static bool IsSuperMajority(int minVersion, const CBlockIndex* pstart,
@@ -893,6 +897,7 @@ public:
         if (!(nType & SER_GETHASH))
             READWRITE(VARINT(nVersion));
 
+        READWRITE(VARINT(nMoneySupply));
         READWRITE(VARINT(nHeight));
         READWRITE(VARINT(nStatus));
         READWRITE(VARINT(nTx));
