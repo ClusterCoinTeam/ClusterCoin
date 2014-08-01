@@ -1245,14 +1245,15 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
 		// 1st block: 7,000,000 CLSTR (ICO fund)
 		// 2 - 13,000 blocks: 0 CLSTR (no mining reward during ICO)
 		// 13,001 - 1,000,000 blocks: 30 CLSTR
+		// 1,000,001 - .. : 0 CLSTR
 
-		int64_t nSubsidy = 30 * COIN;
-		if (nHeight <= 1)
+		int64_t nSubsidy = 0 * COIN;
+		if (nHeight == 1)
 		{
 			nSubsidy = 7000000 * COIN;
-		} else if (nHeight <= 13000)
+		} else if (nHeight > 13000 && nHeight <= 1000000)
 		{
-			nSubsidy = 0;
+			nSubsidy = 30;
 		};
     return nSubsidy + nFees;
 }
