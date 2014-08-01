@@ -63,39 +63,6 @@ public:
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 3175028188;
 
-#if 0
-			{
-	      printf("Generating new genesis block hash\n");
-
-	      // This will figure out a valid hash and Nonce if you're
-	      // creating a different genesis block:
-	      uint256 hashTarget;
-		    bool fNegative;
-		    bool fOverflow;
-	      hashTarget.SetCompact(genesis.nBits, &fNegative, &fOverflow);
-	      printf("hashTarget: %s\n", hashTarget.GetHex().c_str());
-	      printf("nBits: 0x%x\n", genesis.nBits);
-	      while (genesis.GetHash() > hashTarget)
-	      {
-	        ++genesis.nNonce;
-	        if (genesis.nNonce % 1000000 == 0)
-	        {
-	        	printf("nNonce: %u\n", genesis.nNonce);
-	      		printf("hash: %s\n", genesis.GetHash().GetHex().c_str());
-	        }
-	        if (genesis.nNonce == 0)
-	        {
-	          printf("NONCE WRAPPED, incrementing time\n");
-	          ++genesis.nTime;
-	        }
-	      }
-	      printf("Genesis block: %s\n", genesis.GetHash().GetHex().c_str());
-	      printf("Merkle root: %s\n", genesis.hashMerkleRoot.GetHex().c_str());
-	      printf("nTime: %u\n", genesis.nTime);
-	      printf("nNonce: %u\n", genesis.nNonce);
-	      abort();
-    }
-#endif
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x0000013645afa1fb33cb1fbdb94c5d4ef59f4d4cb6b87e737c2361195a8a96ff"));
         assert(genesis.hashMerkleRoot == uint256("0xd383958e401a48eef6316c77b192e00765dc3578d08ed45411d0c82799e4dbd6"));
