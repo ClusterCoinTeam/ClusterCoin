@@ -96,7 +96,9 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
 
     // Get desired locale (e.g. "de_DE")
     // 1) System default language
-    QString lang_territory = QLocale::system().name();
+    //QString lang_territory = QLocale::system().name();
+    // ClusterCoin uses en_US lang by default.
+    QString lang_territory = "en_US";
     // 2) Language from QSettings
     QString lang_territory_qsettings = settings.value("language", "").toString();
     if(!lang_territory_qsettings.isEmpty())
